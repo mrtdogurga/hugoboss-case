@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AlertifyService } from 'src/app/services/alertify.service';
 import { OrderService } from 'src/app/services/order.service';
-import { hugoboss } from '../hugoboss';
+import { Order } from '../hugoboss';
 
 @Component({
   selector: 'app-list-update',
@@ -18,7 +18,7 @@ export class ListUpdateComponent implements OnInit {
     private alertifyService:AlertifyService) 
     { }
     listUpdateForm:FormGroup;
-    order:hugoboss = new hugoboss;
+    order:Order = new Order();
     createListUpdateForm(id=1){
       this.listUpdateForm = this.formBuilder.group({
         Order:[this.order.Order,Validators.required],

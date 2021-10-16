@@ -1,29 +1,30 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Observable,throwError } from 'rxjs';
-import { hugoboss } from '../hugoboss/hugoboss';
 import {tap,catchError, retry} from 'rxjs/operators';
+import { environment } from 'src/environments/environment';
+import { Order } from '../hugoboss/hugoboss';
 
 @Injectable()
 export class OrderService {
   
   constructor(private http: HttpClient) { }
-  path = "http://localhost:3000/hugo"  
+    
 
-  getHugobosss():Observable<hugoboss[]>{
-    return this.http.get<hugoboss[]>(this.path).pipe(
+  getOrders():Observable<Order[]>{
+    return this.http.get<Order[]>(environment.jsonServerUrl).pipe(
       tap(data=>console.log(JSON.stringify(data))),
       catchError(this.handleError)
     );
 }  
-addList(order:hugoboss):Observable<hugoboss>{
+addOrder(order:Order):Observable<Order>{
   const httpOptions={
     headers:new HttpHeaders({
       'Content-Type':'application/json',
       'Authorization':'Token'
     })
   }
-  return this.http.post<hugoboss>(this.path,order,httpOptions).pipe(
+  return this.http.post<Order>(environment.jsonServerUrl,order,httpOptions).pipe(
     tap(data=>console.log(JSON.stringify(data))),
     catchError(this.handleError)
   );

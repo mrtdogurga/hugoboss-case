@@ -2,15 +2,15 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { AlertifyService } from '../services/alertify.service';
 import { OrderService } from '../services/order.service';
-import { hugoboss } from './hugoboss';
+import { Order } from './hugoboss';
 
 @Component({
-  selector: 'app-hugoboss',
-  templateUrl: './hugoboss.component.html',
-  styleUrls: ['./hugoboss.component.css'],
+  selector: 'app-order',
+  templateUrl: './Order.component.html',
+  styleUrls: ['./Order.component.css'],
   providers:[OrderService]
 })
-export class HugobossComponent implements OnInit {
+export class OrderComponent implements OnInit {
 
   constructor(private alertifyService: AlertifyService,
     private orderService:OrderService,
@@ -18,20 +18,19 @@ export class HugobossComponent implements OnInit {
     ) { }
   title = "Hugo Boss Listesi"
   filterText = ""
-  hugobosss: hugoboss[];
+  Orders: Order[];
 
   ngOnInit(){
     this.activatedRoute.params.subscribe(params=>{
-    this.orderService.getHugobosss().subscribe(data=>{
-      this.hugobosss = data
+    this.orderService.getOrders().subscribe(data=>{
+      this.Orders = data
     })
   })
 }
-  delete(hugobosss: hugoboss){
-    //alert(hugobosss.id)       
-   this.orderService.getHugobosss().subscribe(data=>{
-     let index = this.hugobosss.indexOf(hugobosss)
-     this.hugobosss.splice(hugobosss.id);
+  delete(Orders: Order){
+   this.orderService.getOrders().subscribe(data=>{
+     let index = this.Orders.indexOf(Orders)
+     this.Orders.splice(Orders.Id);
     })
     
   }
