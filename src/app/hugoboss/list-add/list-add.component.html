@@ -1,0 +1,41 @@
+<h3>New Add List</h3>
+<form [formGroup]="listAddForm" (ngSubmit)="add()">
+    <div class="form-group mt-1">
+        <input type="text" id="Order" name="Order" formControlName="Order" class="form-control" placeholder="Order">
+        <div class="alert alert-danger"
+            *ngIf="listAddForm.get('Order').hasError('required') && listAddForm.get('Order').dirty">Order alanı
+            zorunludur!</div>
+    </div>
+    <div class="form-group mt-1">
+        <input type="text" id="Model" name="Model" formControlName="Model" class="form-control"
+            placeholder="Model">
+        <div class="alert alert-danger"
+            *ngIf="listAddForm.get('Model').hasError('required') && listAddForm.get('Model').dirty">
+            Model alanı zorunludur</div>
+    </div>
+    <div class="form-group mt-1">
+        <input type="date" id="Date" name="Date" formControlName="Date" class="form-control"
+            placeholder="Date">
+        <div class="alert alert-danger"
+            *ngIf="listAddForm.get('Date').hasError('required') && listAddForm.get('Date').dirty">
+            Date alanı zorunludur</div>
+    </div>   
+    <div class="form-group mt-1">
+        <input type="text" id="Country" name="Country" formControlName="Country" class="form-control"
+            placeholder="Country">
+        <div class="alert alert-danger"
+            *ngIf="listAddForm.get('Country').hasError('required') && listAddForm.get('Country').dirty">
+            Country alanı zorunludur</div>
+    </div>  
+    <div class="form-group mt-1">
+        <select class="form-control" formControlName="Status" name="Status"
+            id="Status" required>
+            <option disabled="disabled">Status</option>
+            <option>True</option>
+            <option>False</option>
+        </select>
+        <div *ngIf="listAddForm.get('Status').hasError('required') && listAddForm.get('Status').touched"
+            class="alert alert-danger">Status alanı gereklidir</div>
+    </div> 
+    <button type="submit" class="btn btn-primary mt-1" [disabled]="listAddForm.invalid">Add List</button>
+</form>

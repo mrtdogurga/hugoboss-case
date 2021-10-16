@@ -1,0 +1,32 @@
+<h3>{{title}}</h3>
+<div class="form-group">
+    <input class="form-control" id="productName" placeholder="Arama Metninizi Giriniz." [(ngModel)] = "filterText" />
+    <small *ngIf="filterText" class="form-text text-muted">Şu an <strong>{{filterText}}</strong> aradınız</small>
+</div> 
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Order</th>
+        <th scope="col">Model</th>
+        <th scope="col">Date</th>
+        <th scope="col">Country</th>
+        <th scope="col">Status</th>    
+        <th scope="col"></th> 
+        <th scope="col"></th>     
+      </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let hugoboss of hugobosss | orderFilter:filterText">
+          <th scope="row">{{hugoboss.id}}</th>
+          <td>{{hugoboss.Order}}</td>
+          <td>{{hugoboss.Model}}</td>
+          <td>{{hugoboss.Date}}</td>
+          <td>{{hugoboss.Country}}</td>
+          <td>{{hugoboss.Status}}</td>
+          <td><button type="submit" class="btn btn-warning" routerLink="/list-update">Edit</button></td>
+          <td><button type="submit" class="btn btn-danger" (click)="delete(hugoboss)">Delete</button></td>
+        </tr>
+        <tr>
+    </tbody>
+</table>
