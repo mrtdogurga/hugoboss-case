@@ -1,14 +1,14 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { ListAddComponent } from './hugoboss/list-add/list-add.component';
-import { ListUpdateComponent } from './hugoboss/list-update/list-update.component';
-import { OrderComponent } from './hugoboss/order.component';
+import { ListAddComponent } from './order/list-add/list-add.component';
+import { ListUpdateComponent } from './order/list-update/list-update.component';
+import { OrderComponent } from './order/order.component';
 
 const routes: Routes = [
   {path:'list',component:OrderComponent},
   {path:'list-add',component : ListAddComponent},
-  {path:'list-update',component : ListUpdateComponent}
+  {path:'list-update/:id',component : ListUpdateComponent}
 ];
 
 @NgModule({

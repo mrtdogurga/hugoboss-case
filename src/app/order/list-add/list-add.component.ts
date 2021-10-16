@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
 import { AlertifyService } from 'src/app/services/alertify.service';
 import { OrderService } from 'src/app/services/order.service';
 
-import { Order } from '../hugoboss';
+import { Order } from '../Order';
 
 @Component({
   selector: 'app-list-add',
@@ -15,7 +16,8 @@ export class ListAddComponent implements OnInit {
 
   constructor(private formBuilder: FormBuilder,
     private orderService: OrderService,
-    private alertifyService: AlertifyService
+    private alertifyService: AlertifyService,
+    public activatedRoute:ActivatedRoute
   ) { }
   listAddForm: FormGroup;
   order: Order = new Order();
@@ -38,8 +40,8 @@ export class ListAddComponent implements OnInit {
     if (this.listAddForm.valid) {
       this.order = Object.assign({}, this.listAddForm.value)
     }
-    this.orderService.addOrder(this.order).subscribe(data => {
-      this.alertifyService.success(data.Order + " başarıyla eklendi")
+    this.orderService.createOrder(this.order).subscribe(data => {
+      this.alertifyService.success(" başarıyla eklendi") //data.Order + 
     });
   }
 }

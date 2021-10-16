@@ -1,8 +1,8 @@
 export class Order {
-    Id: number;
+    id: number;
     Order: string;
     Model: string;
-    Date: string;
+    Date: Date;
     Country: string;
     Status: boolean;
 }

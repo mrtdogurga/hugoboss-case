@@ -7,11 +7,12 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { NavComponent } from './components/nav/nav.component';
-import { ListAddComponent } from './hugoboss/list-add/list-add.component';
-import { ListUpdateComponent } from './hugoboss/list-update/list-update.component';
-import { OrderFilterPipe } from './hugoboss/order-filter.pipe';
-import { OrderComponent } from './hugoboss/order.component';
+import { ListAddComponent } from './order/list-add/list-add.component';
+import { ListUpdateComponent } from './order/list-update/list-update.component';
+import { OrderFilterPipe } from './order/order-filter.pipe';
+import { OrderComponent } from './order/order.component';
 import { AlertifyService } from './services/alertify.service';
+import { SortDirective } from './directive/sort.directive';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { AlertifyService } from './services/alertify.service';
     OrderFilterPipe,
     ListAddComponent,
     ListUpdateComponent,
-    HeaderComponent
+    HeaderComponent,
+    SortDirective
   ],
   imports: [
     BrowserModule,
