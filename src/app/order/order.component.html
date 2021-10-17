@@ -1,43 +1,44 @@
-
 <div class="alert alert-primary mt-4 p-1 text-center" role="alert">
   <h5>{{title}}</h5>
 </div>
 <div class="form-group">
-    <input class="form-control" id="productName" placeholder="Arama Metninizi Giriniz." [(ngModel)] = "filterText" />
-    <small *ngIf="filterText" class="form-text text-muted">Şu an <strong>{{filterText}}</strong> aradınız</small>
-</div> 
+  <input class="form-control" id="productName" placeholder="Arama Metninizi Giriniz." [(ngModel)]="filterText" />
+  <small *ngIf="filterText" class="form-text text-muted">Şu an <strong>{{filterText}}</strong> aradınız</small>
+</div>
 
-<nav aria-label="Page navigation example">
-  <ul class="pagination">
-    <li class="page-item" *ngFor="let item of [].constructor(pageCount); let i = index" (click)="getCurrentPages(i+1)"><a class="page-link"  >{{i+1}}</a></li>
-  </ul>
-</nav>
+<div class="pagi-place">
+  <nav aria-label="Page navigation example">
+    <ul class="pagination">
+      <li class="page-item" *ngFor="let item of [].constructor(pageCount); let i = index"
+        (click)="getCurrentPages(i+1)"><a class="page-link">{{i+1}}</a></li>
+    </ul>
+  </nav>
+</div>
 
-<table  class="table table-striped border mt-1">
-    <thead>
-      <tr>
-        <th scope="col">#</th>
-        <th scope="col" [appSort]="currentDataList" data-order="desc" data-name="Order" scope="col">Order</th>
-        <th scope="col" [appSort]="currentDataList" data-order="desc" data-name="Model" scope="col">Model</th>
-        <th scope="col" [appSort]="currentDataList" data-order="desc" data-name="Date" scope="col">Date</th>
-        <th scope="col" [appSort]="currentDataList" data-order="desc" data-name="Country" scope="col">Country</th>
-        <th scope="col" [appSort]="currentDataList" data-order="desc" data-name="Status" scope="col">Status</th>    
-        <th scope="col"></th> 
-        <th scope="col"></th>     
-      </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let order of currentDataList | orderFilter:filterText">
-          <th scope="row">{{order.id}}</th>
-          <td>{{order.Order}}</td>
-          <td>{{order.Model}}</td>
-          <td>{{order.Date}}</td>
-          <td>{{order.Country}}</td>
-          <td>{{order.Status }}</td>
-          <td><button type="submit" class="btn btn-warning" [routerLink]="['/list-update', order.id]" >Edit</button></td>
-          <td><button type="submit" class="btn btn-danger" (click)="delete(order)">Delete</button></td>
-        </tr>
-        <tr>
-    </tbody>
+<table class="table table-striped border mt-1">
+  <thead>
+    <tr class="order-table">
+      <th scope="col">#</th>
+      <th scope="col" [appSort]="currentDataList" data-order="desc" data-name="Order" scope="col">Order<img src="https://cdn-icons-png.flaticon.com/512/1251/1251670.png" /></th>
+      <th scope="col" [appSort]="currentDataList" data-order="desc" data-name="Model" scope="col">Model<img src="https://cdn-icons-png.flaticon.com/512/1251/1251670.png" /></th>
+      <th scope="col" [appSort]="currentDataList" data-order="desc" data-name="Date" scope="col">Date<img src="https://cdn-icons-png.flaticon.com/512/1251/1251670.png" /></th>
+      <th scope="col" [appSort]="currentDataList" data-order="desc" data-name="Country" scope="col">Country<img src="https://cdn-icons-png.flaticon.com/512/1251/1251670.png" /></th>
+      <th scope="col" [appSort]="currentDataList" data-order="desc" data-name="Status" scope="col">Status</th>
+      <th scope="col"></th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let order of currentDataList | orderFilter:filterText">
+      <th scope="row">{{order.id}}</th>
+      <td>{{order.Order}}</td>
+      <td>{{order.Model}}</td>
+      <td>{{order.Date}}</td>
+      <td>{{order.Country}}</td>
+      <td>{{order.Status }}</td>
+      <td><button type="submit" class="btn btn-warning" [routerLink]="['/list-update', order.id]">Edit</button></td>
+      <td><button type="submit" class="btn btn-danger" (click)="delete(order)">Delete</button></td>
+    </tr>
+    <tr>
+  </tbody>
 </table>
-

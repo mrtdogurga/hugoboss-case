@@ -6,6 +6,7 @@ import { ListUpdateComponent } from './order/list-update/list-update.component';
 import { OrderComponent } from './order/order.component';
 
 const routes: Routes = [
+  {path:'',component:OrderComponent},
   {path:'list',component:OrderComponent},
   {path:'list-add',component : ListAddComponent},
   {path:'list-update/:id',component : ListUpdateComponent}

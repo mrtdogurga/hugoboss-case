@@ -1,0 +1,14 @@
+.pagi-place{
+    margin-top:10px;
+}
+.order-table th{
+    cursor: pointer;
+}
+.order-table th img{
+    width: 10px;
+    margin-left: 6px;
+    height: auto;
+}
+.page-item{
+    cursor: pointer;
+}

@@ -1,27 +1,30 @@
-# Shop
+# hugoboss-case
+Proje çalıştırmak için Nodejs in bilgisayarınızda yüklü olması gerekmektedir.
+ projeyi çalıştırmak için aşağıdaki sırayı izleyiniz;
+ 
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.9.
+    npm install -g json-server`
 
-## Development server
+    npm install
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Sonrasında proje dosyasını çalıştırabilirsiniz (`ng serve -o`)
 
-## Code scaffolding
+-Kullanılan json dosyası üzerinde dosya path --> `app\src\app\db`
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+    json-server --watch Order.json
 
-## Build
+ 
+Ana ekranda json orderları listelenmektedir.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Orderlar üzerinde düzenleme ve silme işlemleri yapılmaktadır.
 
-## Running unit tests
+Order listesinin üst tarafında 100 datada bir sayfalandırma işlemi yapılmıştır.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Tüm orderlar üzerinde arama işlemi de yapılmaktadır.
 
-## Running end-to-end tests
+Sol sidebar üzerinde Orderları listemek ve yeni order eklemek için routing yönlendirmesi yapılmıştır.
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+Eklenen yeni bir order, orderların en alt kısmında gösterilmektedir.
 
-## Further help
+Datalar üzerindeki table başlıklarında a-z sıralama işlemi yapılmıştır. İşlemi yaparken farklı bir projenin içerisindeki utils dosyasından yararlandım.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
